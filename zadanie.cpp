@@ -29,7 +29,7 @@ private:
 
 };
 
-Synchronizer::Synchronizer(int i)
+Synchronizer::Synchronizer(const int i)
 	: size (i)
 {}
 
@@ -42,16 +42,16 @@ void Synchronizer::init_data(){
 	srand(unsigned(time(0)));
 	
 	int num;
-	/* заполнить вектор */
+	// заполнить вектор
 	for (int i = 0; i < Synchronizer::size; i++){
 		num = (rand() % 9) + 1;
 		vec.push_back(num);
 	}
 
-	/* заполнить мап */
+	// заполнить мап
 	for (int i = 0; i < Synchronizer::size; i++){
 		num = (rand() % 9) + 1;
-		/* ключ будет индекс элемента */
+		// ключ будет индекс элемента
 		map.insert(std::make_pair(map.size(), num));
 	}
 
@@ -78,7 +78,7 @@ void Synchronizer::delete_data(){
 
 void Synchronizer::sync_data(){
 
-	/* создать новый вектор с парами, где каждая пара состоит из элементов помененных местами */
+	// создать новый вектор с парами, где каждая пара состоит из элементов помененных местами
 	std::vector<std::pair<int, int> > reverse_map;
 
 	for (it_m = Synchronizer::map.begin(); it_m != Synchronizer::map.end(); it_m++){
@@ -160,10 +160,7 @@ int i = std::stoi(argv[1]);
 Synchronizer sync = Synchronizer(i);
 
 sync.init_data();
-sync.print_data();
 sync.delete_data();
-sync.print_data();
 sync.sync_data();
-sync.print_data();
 
 }
