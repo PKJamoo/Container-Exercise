@@ -29,9 +29,9 @@ private:
 
 };
 
-Synchronizer::Synchronizer(int i){
-	Synchronizer::size = i;
-}
+Synchronizer::Synchronizer(int i)
+	: size (i)
+{}
 
 Synchronizer::~Synchronizer(){
 
@@ -158,8 +158,12 @@ int main(int argc, char** argv){
 	
 int i = std::stoi(argv[1]);
 Synchronizer sync = Synchronizer(i);
+
 sync.init_data();
+sync.print_data();
 sync.delete_data();
+sync.print_data();
 sync.sync_data();
+sync.print_data();
 
 }
